@@ -23,18 +23,23 @@ const Pagination = ({numberPages, handleNumberPage, currentPage, handleNextPage,
     setArrCurrentButtons(tempNumberPages)
   },[currentButtons])
 
+  const handleCurrentButton = (page) => {
+    handleNumberPage(page)
+    setCurrentButtons(page)
+  }
+
   return (
     <nav aria-label="Page navigation ">
       <ul className="pagination">
         <li className="page-item">
-          <button   onClick={handlePrevPage} className="page-link">Previous</button>
+          <button onClick={handlePrevPage} className="page-link">Previous</button>
         </li>
         {arrCurrentButtons.map((page,index) => (
           <li key={index}
             className={page === currentPage ? 'page-item active' : 'page-item' }>
             <button
             className="page-link" 
-            onClick={()=> handleNumberPage(page)}>{page}</button>
+            onClick={handleCurrentButton(page)}>{page}</button>
           </li>
           ))}
         <li className="page-item">

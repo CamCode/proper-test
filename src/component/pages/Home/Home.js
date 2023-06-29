@@ -63,8 +63,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    console.log(page)
-    console.log(sort)
     const usersUpdate =  async () => {
       if(query) {
         const items =  await fetchUsers();
@@ -84,7 +82,7 @@ const Home = () => {
         <button onClick={handleSearchUsers} className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
       </div>
 
-      {countPages > 0 ? 
+      {countPages > 0 ?
         <div className='container mb-3'>
         <div className='row'>
           <div className='col-sm-6 col-md-3 '>
